@@ -19,12 +19,12 @@ fun main() {
     /**
      * Ordenação por título crescente
      */
-    livros.sortedBy { it.titulo }.toMutableList().imprimeFormatado()
+    livros.sortedBy { it.titulo }.imprimeFormatado()
 
     /**
      * Ordenação por título decrescente
      */
-    livros.sortedByDescending { it.titulo }.toMutableList().imprimeFormatado()
+    livros.sortedByDescending { it.titulo }.imprimeFormatado()
 
     /**
      * Filtrar Livros
@@ -32,20 +32,16 @@ fun main() {
 
     livros.filter { it.autor == "João Guimarães Rosa" } // filtra pelo nome do autor
         .sortedBy { it.anoPublicacao } // ordena pelo ano de publicação
-        .toMutableList()
         .imprimeFormatado()
 
     livros.filter { it.autor.startsWith("Joã") }
-        .toMutableList()
         .imprimeFormatado()
 
     livros.filter { it.titulo.startsWith("M") }
-        .toMutableList()
         .imprimeFormatado()
 
     livros.filter { it.titulo.startsWith("M") }
         .sortedBy { it.anoPublicacao }
-        .toMutableList()
         .imprimeFormatado()
 
     val titulos = livros.filter { it.titulo.startsWith("M") }
@@ -53,12 +49,4 @@ fun main() {
         .map { it.titulo }
 
     println(titulos)
-}
-
-fun MutableList<Livro>.imprimeFormatado() {
-    val formatado = this.joinToString(separator = "\n") {
-        " => ${it.titulo} de ${it.autor}"
-    }
-    println(" #### Lista de Livros ####")
-    println(formatado)
 }
