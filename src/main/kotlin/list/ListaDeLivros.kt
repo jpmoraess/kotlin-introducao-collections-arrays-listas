@@ -25,6 +25,34 @@ fun main() {
      * Ordenação por título decrescente
      */
     livros.sortedByDescending { it.titulo }.toMutableList().imprimeFormatado()
+
+    /**
+     * Filtrar Livros
+     */
+
+    livros.filter { it.autor == "João Guimarães Rosa" } // filtra pelo nome do autor
+        .sortedBy { it.anoPublicacao } // ordena pelo ano de publicação
+        .toMutableList()
+        .imprimeFormatado()
+
+    livros.filter { it.autor.startsWith("Joã") }
+        .toMutableList()
+        .imprimeFormatado()
+
+    livros.filter { it.titulo.startsWith("M") }
+        .toMutableList()
+        .imprimeFormatado()
+
+    livros.filter { it.titulo.startsWith("M") }
+        .sortedBy { it.anoPublicacao }
+        .toMutableList()
+        .imprimeFormatado()
+
+    val titulos = livros.filter { it.titulo.startsWith("M") }
+        .sortedBy { it.anoPublicacao }
+        .map { it.titulo }
+
+    println(titulos)
 }
 
 fun MutableList<Livro>.imprimeFormatado() {
