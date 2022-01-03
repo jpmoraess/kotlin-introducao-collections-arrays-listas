@@ -8,7 +8,7 @@ fun main() {
 
     val livros: MutableList<Livro> = mutableListOf(livro1, livro2, livro3, livro4)
 
-    livros.add(Livro("Sagarana", "João Guimarães Rosa", 1946))
+    listaDeLivros.add(Livro("Sagarana", "João Guimarães Rosa", 1946))
 
     livros.imprimeFormatado()
 
