@@ -31,6 +31,12 @@ fun main() {
     val totalSalariosProximos6Meses = salariosComAumento.somatoria() * BigDecimal(6)
     println("Valor total dos salários com aumento em 6 meses: $totalSalariosProximos6Meses")
 
+    val salarioInicialMais6Meses = salariosComAumento.fold(totalSalarios) { acc, valor ->
+        acc + (valor * BigDecimal(6)).setScale(2,
+            RoundingMode.UP)
+    }
+    println("Valor total salários mês inicial + 6 meses: $salarioInicialMais6Meses")
+
 }
 
 fun bigDecimalArrayOf(vararg values: String): Array<BigDecimal> {
