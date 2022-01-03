@@ -15,6 +15,16 @@ fun main() {
     livros.remove(livro1)
 
     livros.imprimeFormatado()
+
+    /**
+     * Ordenação por título crescente
+     */
+    livros.sortedBy { it.titulo }.toMutableList().imprimeFormatado()
+
+    /**
+     * Ordenação por título decrescente
+     */
+    livros.sortedByDescending { it.titulo }.toMutableList().imprimeFormatado()
 }
 
 fun MutableList<Livro>.imprimeFormatado() {
