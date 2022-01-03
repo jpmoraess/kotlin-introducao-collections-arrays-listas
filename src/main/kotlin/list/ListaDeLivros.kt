@@ -10,9 +10,17 @@ fun main() {
 
     livros.add(Livro("Sagarana", "João Guimarães Rosa", 1946))
 
-    println(livros)
+    livros.imprimeFormatado()
 
     livros.remove(livro1)
 
-    println(livros)
+    livros.imprimeFormatado()
+}
+
+fun MutableList<Livro>.imprimeFormatado() {
+    val formatado = this.joinToString(separator = "\n") {
+        " => ${it.titulo} de ${it.autor}"
+    }
+    println(" #### Lista de Livros ####")
+    println(formatado)
 }
