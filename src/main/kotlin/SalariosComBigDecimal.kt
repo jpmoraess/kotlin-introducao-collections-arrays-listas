@@ -37,12 +37,27 @@ fun main() {
     }
     println("Valor total salários mês inicial + 6 meses: $salarioInicialMais6Meses")
 
-}
 
-fun bigDecimalArrayOf(vararg values: String): Array<BigDecimal> {
-    return Array(values.size) { i -> values[i].toBigDecimal() }
-}
+    /**
+     * Média dos 3 maiores salários...
+     */
 
-fun Array<BigDecimal>.somatoria(): BigDecimal {
-    return this.reduce { acc, valor -> acc + valor }
+    //val salariosComAumentoOrdenados = salariosComAumento.sorted() // sorted - ordena do menor para o maior
+    //val tresUltimosSalarios = salariosComAumentoOrdenados.takeLast(3).toTypedArray() // pega os 3 últimos salários ...
+    //val mediaTresUltimosSalarios = tresUltimosSalarios.media()
+    //println("Média dos 3 últimos salários: $mediaTresUltimosSalarios")
+
+    val mediaTresUltimosSalarios = salariosComAumento
+        .sorted() // sorted- ordena do menor salário para o maior salário
+        .takeLast(3) // takeLast - pega as últimas n posições
+        .toTypedArray() // transforma para Array
+        .media() // extension function responsável por calcular a média.
+    println("Média dos 3 últimos salários: $mediaTresUltimosSalarios")
+
+    val mediaTresMenoresSalarios = salariosComAumento
+        .sorted()
+        .take(3) // take - pega as primeiras n posições
+        .toTypedArray()
+        .media()
+    println("Média dos 3 menores salários: $mediaTresMenoresSalarios")
 }
